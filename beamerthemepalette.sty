@@ -1,0 +1,184 @@
+\ProvidesPackage{beamerthemepalette}
+
+\RequirePackage{tcolorbox}
+
+\RequirePackage{pdftexcmds}
+\RequirePackage{kvoptions}
+\DeclareStringOption[blue]{colorscheme}
+\ProcessKeyvalOptions*
+
+\ifnum\pdf@strcmp{\beamerthemepalette@colorscheme}{blue}=0%
+  \definecolor{col_text}{HTML}{040615}
+  \definecolor{col_bg}{HTML}{e5e5e5}
+  \definecolor{col_deep}{HTML}{144182}
+  \definecolor{col_mid}{HTML}{4776b9}
+  \definecolor{col_light}{HTML}{b7ceea}
+\fi%
+
+\ifnum\pdf@strcmp{\beamerthemepalette@colorscheme}{green}=0%
+  \definecolor{col_text}{HTML}{222222}
+  \definecolor{col_bg}{HTML}{F3E6D9}
+  \definecolor{col_deep}{HTML}{289900}
+  \definecolor{col_mid}{HTML}{7bd74a}
+  \definecolor{col_light}{HTML}{dace8c}
+\fi%
+
+\ifnum\pdf@strcmp{\beamerthemepalette@colorscheme}{red}=0%
+  \definecolor{col_text}{HTML}{30282f}
+  \definecolor{col_bg}{RGB}{244,231,218}
+  \definecolor{col_deep}{HTML}{691D35}
+  \definecolor{col_mid}{HTML}{B73141}
+  \definecolor{col_light}{HTML}{D0D7A6}
+\fi%
+
+\ifnum\pdf@strcmp{\beamerthemepalette@colorscheme}{goblue}=0%
+  \definecolor{col_text}{HTML}{30282f} 
+  \definecolor{col_bg}{HTML}{eff0f1}
+  \definecolor{col_deep}{HTML}{00274c}    % blue
+  \definecolor{col_mid}{HTML}{B5985A}
+  \definecolor{col_light}{HTML}{ffcb05}   % maize
+\fi%
+
+\ifnum\pdf@strcmp{\beamerthemepalette@colorscheme}{caltech}=0%
+  \definecolor{col_text}{HTML}{111111}
+  \definecolor{col_bg}{HTML}{eff0f1}
+  \definecolor{col_deep}{HTML}{FF6C0C}    % Caltech orange
+  \definecolor{col_mid}{HTML}{76777B}
+  \definecolor{col_light}{HTML}{C8C8C8}
+\fi%
+
+\newcommand{\botLeftVar}{}
+\newcommand{\footLeft}[1]{\renewcommand{\botLeftVar}{#1}}
+
+\newcommand{\botMidVar}{}
+\newcommand{\footMid}[1]{\renewcommand{\botMidVar}{#1}}
+
+\newcommand{\botRightVar}{}
+\newcommand{\footRight}[1]{\renewcommand{\botRightVar}{#1}}
+
+\newlength\columnheight
+\linespread{1.25}
+
+\mode<presentation>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% STYLING %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% COLORS %%
+
+% Global
+\setbeamercolor*{normal text}{fg=col_text, bg=col_bg}
+\setbeamercolor*{separation line}{bg=col_mid}
+
+% Header/footer
+\setbeamercolor{headfoot}{fg=white, bg=col_deep}
+
+% Captions
+\setbeamercolor{caption name}{fg=col_text}
+\setbeamercolor{caption}{fg=col_text}
+
+% Itemize
+\setbeamertemplate{itemize items}{\color{col_deep}$\blacktriangleright$}
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+%% FONTS %%
+
+% Header
+\setbeamerfont{title in headline}{family=\rmfamily,series=\bfseries,size=\Huge}
+\setbeamerfont{author in headline}{family=\rmfamily,series=\mdseries,size=\Large}
+
+% Footer
+\setbeamerfont{footline}{family=\rmfamily,series=\bfseries,size=\large}
+
+% Captions
+\setbeamerfont{caption name}{family=\sffamily,series=\bfseries,size=\normalsize}
+\setbeamerfont{caption}{family=\sffamily,series=\mdseries,size=\normalsize}
+
+%% BLOCKS %%
+
+\setbeamertemplate{block begin}{
+  \begin{tcolorbox}[
+    arc=1ex, 
+    boxrule=0.3ex, 
+    titlerule=0ex,
+    toptitle=1ex, 
+    bottomtitle=1ex, 
+    boxsep=1.2ex,
+    coltitle=white,
+    colbacktitle=col_deep, 
+    coltext=col_text, 
+    colback=col_light, 
+    colframe=col_mid, 
+    fonttitle=\bfseries\large,
+    fontupper=\mdseries,
+    title=\insertblocktitle]
+}
+
+\setbeamertemplate{block end}{
+  \end{tcolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% HEADLINE %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{headline}{  
+  \leavevmode
+  \begin{beamercolorbox}[wd=\paperwidth,colsep=10ex]{headfoot}
+    \begin{columns}
+      \begin{column}{.05\paperwidth}
+      \end{column}
+      \begin{column}{.7\paperwidth}
+        \raggedright
+        \usebeamerfont{title in headline}\inserttitle\\[1ex]
+        \usebeamerfont{author in headline}\insertauthor\\[1ex]
+      \end{column}
+      \begin{column}{.2\paperwidth}
+        \raggedleft
+        \insertinstitute
+      \end{column}
+      \begin{column}{.05\paperwidth}
+      \end{column}
+    \end{columns}
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[wd=\paperwidth]{separation line}
+    \rule{0pt}{0.6ex}
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% FOOTLINE %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth]{separation line}
+    \rule{0pt}{0.3ex}
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[wd=\paperwidth]{headfoot}%
+  \begin{columns}
+    \begin{column}{.02\paperwidth}
+    \end{column}
+    \begin{column}{.96\paperwidth}\usebeamerfont{footline}
+      \botLeftVar
+      \hfill
+      \botMidVar
+      \hfill
+      \botRightVar
+    \end{column}
+
+    \begin{column}{.02\paperwidth}
+    \end{column}
+  \end{columns}
+  \vspace{1ex}
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{caption}[numbered]{}% Number float-like environments
+
+\mode<all>
