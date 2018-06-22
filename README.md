@@ -15,7 +15,7 @@ The only package option is ```colorscheme```. Currently available colorschemes a
  - caltech (Orange)
  - goblue (University of Michigan maize and blue)
 
-Colorschemes are defined by five basic colors; it is straightforward to add new color schemes to the package.
+Colorschemes are defined by five basic colors; it is straightforward to add new color schemes to the package. Recommendation: start with a set of colors from http://colorpalettes.net/.
 
 ## Dependencies
 
