@@ -1,6 +1,6 @@
 # PALETTE
 
-A theme for [https://www.ctan.org/pkg/beamerposter](beamerposter).
+A theme for [beamerposter](https://www.ctan.org/pkg/beamerposter).
 
 [![](samples/ex-blue-small.png)](samples/ex-blue.pdf) [![](samples/ex-green-small.png)](samples/ex-green.pdf) [![](samples/ex-red-small.png)](samples/ex-red.pdf) [![](samples/ex-caltech-small.png)](samples/ex-caltech.pdf) [![](samples/ex-goblue-small.png)](samples/ex-goblue.pdf)
 
@@ -16,6 +16,10 @@ The only package option is ```colorscheme```. Currently available colorschemes a
  - goblue (University of Michigan maize and blue)
 
 Colorschemes are defined by five basic colors; it is straightforward to add new color schemes to the package.
+
+## Dependencies
+
+```beamerposter``` and ```tcolorbox```.
 
 ## Example
 
