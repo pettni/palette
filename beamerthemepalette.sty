@@ -7,44 +7,68 @@
 \DeclareStringOption[blue]{colorscheme}
 \ProcessKeyvalOptions*
 
+% col_text:     color of default text
+% col_title:    color text in header and footer and block titles
+
+% col_bg:       empty space background
+% col_titlebg:  background of header footer and block titles
+% col_blockbg   background of blocks
+
+% col_lines:    color of lines
+
 \ifnum\pdf@strcmp{\beamerthemepalette@colorscheme}{blue}=0%
-  \definecolor{col_text}{HTML}{040615}
   \definecolor{col_bg}{HTML}{e5e5e5}
-  \definecolor{col_deep}{HTML}{144182}
-  \definecolor{col_mid}{HTML}{4776b9}
-  \definecolor{col_light}{HTML}{b7ceea}
+
+  \definecolor{col_text}{HTML}{040615}
+  \definecolor{col_title}{HTML}{ffffff}
+  \definecolor{col_lines}{HTML}{4776b9}
+  
+  \definecolor{col_titlebg}{HTML}{144182}
+  \definecolor{col_blockbg}{HTML}{b7ceea}
 \fi%
 
 \ifnum\pdf@strcmp{\beamerthemepalette@colorscheme}{green}=0%
-  \definecolor{col_text}{HTML}{222222}
   \definecolor{col_bg}{HTML}{F3E6D9}
-  \definecolor{col_deep}{HTML}{289900}
-  \definecolor{col_mid}{HTML}{7bd74a}
-  \definecolor{col_light}{HTML}{dace8c}
+
+  \definecolor{col_text}{HTML}{222222}
+  \definecolor{col_title}{HTML}{ffffff}
+  \definecolor{col_lines}{HTML}{7bd74a}
+  
+  \definecolor{col_titlebg}{HTML}{289900}
+  \definecolor{col_blockbg}{HTML}{dace8c}
 \fi%
 
 \ifnum\pdf@strcmp{\beamerthemepalette@colorscheme}{red}=0%
-  \definecolor{col_text}{HTML}{30282f}
   \definecolor{col_bg}{RGB}{244,231,218}
-  \definecolor{col_deep}{HTML}{691D35}
-  \definecolor{col_mid}{HTML}{B73141}
-  \definecolor{col_light}{HTML}{D0D7A6}
+
+  \definecolor{col_text}{HTML}{30282f}
+  \definecolor{col_title}{HTML}{ffffff}
+  \definecolor{col_lines}{HTML}{B73141}
+  
+  \definecolor{col_titlebg}{HTML}{691D35}
+  \definecolor{col_blockbg}{HTML}{D0D7A6}
 \fi%
 
 \ifnum\pdf@strcmp{\beamerthemepalette@colorscheme}{goblue}=0%
+  \definecolor{col_bg}{HTML}{ffffff}
+ 
   \definecolor{col_text}{HTML}{30282f} 
-  \definecolor{col_bg}{HTML}{eff0f1}
-  \definecolor{col_deep}{HTML}{00274c}    % blue
-  \definecolor{col_mid}{HTML}{B5985A}
-  \definecolor{col_light}{HTML}{ffcb05}   % maize
+  \definecolor{col_title}{HTML}{ffcb05}      % maize
+  \definecolor{col_lines}{HTML}{B5985A}
+
+  \definecolor{col_titlebg}{HTML}{00274c}    % blue
+  \definecolor{col_blockbg}{HTML}{eff0f1}
 \fi%
 
 \ifnum\pdf@strcmp{\beamerthemepalette@colorscheme}{caltech}=0%
-  \definecolor{col_text}{HTML}{111111}
   \definecolor{col_bg}{HTML}{eff0f1}
-  \definecolor{col_deep}{HTML}{FF6C0C}    % Caltech orange
-  \definecolor{col_mid}{HTML}{76777B}
-  \definecolor{col_light}{HTML}{C8C8C8}
+
+  \definecolor{col_text}{HTML}{111111}
+  \definecolor{col_title}{HTML}{ffffff}
+  \definecolor{col_lines}{HTML}{76777B}
+  
+  \definecolor{col_titlebg}{HTML}{FF6C0C}    % Caltech orange
+  \definecolor{col_blockbg}{HTML}{C8C8C8}
 \fi%
 
 \newcommand{\botLeftVar}{}
@@ -69,17 +93,17 @@
 
 % Global
 \setbeamercolor*{normal text}{fg=col_text, bg=col_bg}
-\setbeamercolor*{separation line}{bg=col_mid}
+\setbeamercolor*{separation line}{bg=col_lines}
 
 % Header/footer
-\setbeamercolor{headfoot}{fg=white, bg=col_deep}
+\setbeamercolor{headfoot}{fg=col_title, bg=col_titlebg}
 
 % Captions
 \setbeamercolor{caption name}{fg=col_text}
 \setbeamercolor{caption}{fg=col_text}
 
 % Itemize
-\setbeamertemplate{itemize items}{\color{col_deep}$\blacktriangleright$}
+\setbeamertemplate{itemize items}{\color{col_titlebg}$\blacktriangleright$}
 \setbeamertemplate{navigation symbols}{}  % no navigation on a poster
 
 %% FONTS %%
@@ -105,11 +129,11 @@
     toptitle=1ex, 
     bottomtitle=1ex, 
     boxsep=1.2ex,
-    coltitle=white,
-    colbacktitle=col_deep, 
+    coltitle=col_title,
+    colbacktitle=col_titlebg, 
     coltext=col_text, 
-    colback=col_light, 
-    colframe=col_mid, 
+    colback=col_blockbg, 
+    colframe=col_lines, 
     fonttitle=\bfseries\large,
     fontupper=\mdseries,
     title=\insertblocktitle]
